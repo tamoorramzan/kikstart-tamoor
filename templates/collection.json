@@ -14,28 +14,32 @@
         "blocks_dda9yQ": {
           "type": "blocks",
           "settings": {
-            "collection_title": "All",
-            "collection_link": "shopify:\/\/collections\/all"
+            "collection": "all"
           }
         },
         "blocks_jzUYDN": {
           "type": "blocks",
           "settings": {
-            "collection_title": "Hydrogen",
-            "collection_link": "shopify:\/\/collections\/hydrogen"
+            "collection": ""
+          }
+        },
+        "blocks_bxrycB": {
+          "type": "blocks",
+          "settings": {
+            "collection": "hydrogen"
           }
         },
         "blocks_4Rydjt": {
           "type": "blocks",
           "settings": {
-            "collection_title": "Automated Collection",
-            "collection_link": "shopify:\/\/collections\/automated-collection"
+            "collection": "automated-collection"
           }
         }
       },
       "block_order": [
         "blocks_dda9yQ",
         "blocks_jzUYDN",
+        "blocks_bxrycB",
         "blocks_4Rydjt"
       ],
       "settings": {
