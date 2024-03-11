@@ -8,6 +8,23 @@
         "color_scheme": "scheme-1"
       }
     },
+    "main_collection_tab_j7Uqft": {
+      "type": "main-collection-tab",
+      "blocks": {
+        "blocks_dda9yQ": {
+          "type": "blocks",
+          "settings": {
+            "collection_title": "",
+            "collection_link": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "blocks_dda9yQ"
+      ],
+      "settings": {
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -31,6 +48,7 @@
   },
   "order": [
     "banner",
+    "main_collection_tab_j7Uqft",
     "product-grid"
   ]
 }
