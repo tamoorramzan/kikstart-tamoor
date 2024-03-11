@@ -1,21 +1,25 @@
 <div class="collections-link-list">
-    <div class="page-width">
-      <ul>
-        {%- for block in section.blocks -%}
-        <li><a href="{{ block.settings.collection_link }}" class="collection-page-link full-unstyled-link">{{ block.settings.collection_title }}</a></li>
-        {%- endfor -%}
-      </ul>
-      <select class="dropdown-menu">
-        {%- for block in section.blocks -%}
-        <option value="{{ block.settings.collection_link }}">{{ block.settings.collection_title }}</option>
-        {%- endfor -%}
-      </select>
-    </div>
+  <div class="page-width">
+    <ul>
+      {%- for block in section.blocks -%}
+        <li>
+          <a href="{{ block.settings.collection.link }}" class="collection-page-link full-unstyled-link">
+            {{- block.settings.collection.title -}}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    <select class="dropdown-menu">
+      {%- for block in section.blocks -%}
+        <option value="{{ block.settings.collection.link }}">{{ block.settings.collection.title }}</option>
+      {%- endfor -%}
+    </select>
   </div>
-  
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', function(event) {
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('click', function (event) {
       if (event.target.matches('.collection-page-link')) {
         event.preventDefault();
         var url = event.target.getAttribute('href');
@@ -24,7 +28,7 @@
     });
     function attachDropdownEventListener() {
       var dropdownMenu = document.querySelector('.dropdown-menu');
-      dropdownMenu.addEventListener('change', function() {
+      dropdownMenu.addEventListener('change', function () {
         var url = this.value;
         fetchPage(url);
       });
@@ -32,8 +36,8 @@
     attachDropdownEventListener();
     function fetchPage(url) {
       fetch(url)
-        .then(response => response.text())
-        .then(html => {
+        .then((response) => response.text())
+        .then((html) => {
           document.getElementById('main-body').innerHTML = html;
           window.history.pushState({ path: url }, '', url);
           attachDropdownEventListener();
@@ -46,36 +50,31 @@
             }
           }
         })
-        .catch(error => console.error('Error:', error));
+        .catch((error) => console.error('Error:', error));
     }
   });
-  </script>
-  {% schema %}
+</script>
+{% schema %}
+{
+  "name": "Collection Tabs",
+  "settings": [],
+  "blocks": [
     {
-      "name": "Collection Tabs",
-      "settings": [],
-    "blocks": [
-       {
-         "type": "blocks",
-         "name": "Content",
-         "settings": [
-           {
-             "type": "text",
-             "id": "collection_title",
-             "label": "Collection Title"
-           },
-           {
-             "type": "url",
-             "id": "collection_link",
-             "label": "Collection Link"
-           }
-         ]
-       }
-    ],
-    "presets": [
-      {
-        "name": "Collection Tabs"
-      }
-    ]
+      "type": "blocks",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select collection"
+        }
+      ]
     }
-  {% endschema %}
+  ],
+  "presets": [
+    {
+      "name": "Collection Tabs"
+    }
+  ]
+}
+{% endschema %}
