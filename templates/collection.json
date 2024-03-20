@@ -28,12 +28,19 @@
           "settings": {
             "collection": "automated-collection"
           }
+        },
+        "blocks_wCwWD7": {
+          "type": "blocks",
+          "settings": {
+            "collection": "frontpage"
+          }
         }
       },
       "block_order": [
         "blocks_dda9yQ",
         "blocks_bxrycB",
-        "blocks_4Rydjt"
+        "blocks_4Rydjt",
+        "blocks_wCwWD7"
       ],
       "settings": {
       }
